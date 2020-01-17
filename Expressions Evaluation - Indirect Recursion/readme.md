@@ -66,12 +66,11 @@ First things first, we must keep in mind that arithmetic expressions are __not t
 
 A general algorithm would be:
 1. Identify all the operators that may be in the expression. Let's call it the *set of operators*.
-2. Separate the set of operators into subsets based on priority. Each subset will have a priority between 1 and N, where N is the number of subsets we created.
-3. For each subset, create a function. For each function having a priotity of N, first take the result of calling the function having the priority N-1. The result of the function having the priority N-1 will be one operand for our function with a priority of N.
-4. Create a top level function called `evaluate` that will call the lowest priority function, the function with a priority of N, and will return the result.
-5. Identify then possible domain of representation for the operand. Create a function that is responsible of "extracting" an operand for us. Let's call it `value`.
-6. Create a function that will abstractize the value extraction, called `operand`. If there are paranthesis allowed in the expression, handle this case here. If there is an opening paranthesis is found, call the top level evaluation function: `evaluate`.
+2. Separate the set of operators into subsets based on priority. Each subset will have a priority between 1 and N, where N is the number of subsets we created, 1 is the highest priority and N is the lowest priority.
+3. For each subset, create a function. For each operator having a priotity of K (K > 1), operands will be results of calling the function having the priority K-1. The number of calls will correspond with the arity of the operator.
+4. Create a top level function called `evaluate` that will call the lowest priority function and will return the result.
+5. Identify the possible domain of representation for the operand. Create a function that is responsible of "extracting" an operand for us. Let's call it `value`.
+6. Create a function that will abstractize the value extraction, called `operand`. If there are paranthesis allowed in the expression, handle this case here. If there is an opening paranthesis is found, call the top level evaluation function.
 7. The the highest priority function will call the `operand` function.
-8. For each priority-based function, look for the actual operator in the expression and fulfil the arity requirement: for each of the following operand needed, call again the function with a priority of N-1. Return the result.
 
 ## Link to problems
