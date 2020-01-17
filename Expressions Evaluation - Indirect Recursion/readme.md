@@ -16,9 +16,15 @@ Well, let's see an example, not just story telling:
 
 Computers don't like this, so we'll translate it for it: `(1+1)*13+10/2`
 
-Is this enough? Not really. Computers just do `01010111001111`. Here come the programming languages. A programming language is capable of translating such expression into `01010111001111`. We'll study this in C++, so we'll call this compilation.
+Is this enough? Not really. Computers just do `01010111001111` until it gets the value (31 here). So, here come the programming languages to help. A programming language is capable of translating such expression into a pretty abstractization of `01010111001111`, called [assembly language](https://en.wikipedia.org/wiki/Assembly_language) and directly mapped to binary representation. We'll study this in C++, so we'll call this process *compilation*.
 
+Now comes the question: *How does the compiler handle this `(1+1)*13+10/2`?*. Briefly and beyond the scope of this lesson, it uses the [reversed polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) for its algorithm. It has many advantages, but it's not our goal for now.
 
+So let's focus on what we want to do and what do we need for that. In this thing that we called *expression*, as we learned in priamry school, we can spot some key aspects that will lead to the solution we want for now: we see some operators (`+`, `/`, `*`), some operands (`1`, `13`, `10`, `2`) and some paranthesis. Each operator has an *arity* (how many operators it requires) and a *priority* (who gets evaluated first). Here we have only binary operators and among them `*` and `/` have higher priority than `+`. Unless there are parathesis, which get evaluated prior to respecting these priorities. Operators of the same priority gen evaluated by "who's the first".
+
+This being told, the step by step evaluation of `(1+1)*13+10/2` would be:
+
+(1+1)\*13+10/2 -> 2\*13+10/2 -> 26+10/2 -> 26+5 -> 31
 
 ## Indirect recursion
 
