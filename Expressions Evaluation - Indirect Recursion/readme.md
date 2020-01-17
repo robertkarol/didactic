@@ -27,5 +27,38 @@ This being told, the step by step evaluation of `(1+1)*13+10/2` would be:
 (1+1)\*13+10/2 -> 2\*13+10/2 -> 26+10/2 -> 26+5 -> 31
 
 ## Indirect recursion
+We already know that if we have a function 
+
+```
+void func1()
+{
+  /*
+  do whatever
+  */
+  func1();
+}
+```
+
+Then the fact that `func1` calls itself within its body is making us characterize `func1` as *recursive function*. We already know many useful usage, like Fibonacci, Backtracking, Divide and Conquer an so on. But what if we have
+
+```
+void func1()
+{
+  /*
+  do whatever
+  */
+  func2();
+}
+
+void func2()
+{
+  /*
+  do whatever
+  */
+  func1();
+}
+```
+
+This can't be classified as recursion based on the definition we knew. So, we'll extend the previous definition and state that what we called recursion it's actually, *direct recursion* (because func1 directly calles itself). Let's continue with this "weird" code. We see that there is a "ping-pong" game between them, ecah passing the control to each other. This is called *indirect rescursion*. That's because `func1` passes the control to `func2`, which passes it back to `func1`. So, here we have a recursion, but with the help of an intermediate.
 
 ## Link to problems
