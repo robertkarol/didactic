@@ -61,4 +61,17 @@ void func2()
 
 This can't be classified as recursion based on the definition we knew. So, we'll extend the previous definition and state that what we called recursion it's actually, *direct recursion* (because func1 directly calles itself). Let's continue with this "weird" code. We see that there is a "ping-pong" game between them, ecah passing the control to each other. This is called *indirect rescursion*. That's because `func1` passes the control to `func2`, which passes it back to `func1`. So, here we have a recursion, but with the help of an intermediate.
 
+## Algorithm for evaluating and expression using indirect recursion
+First things first, we must keep in mind that arithmetic expressions are __not the only expressions that can be evaluated with this technique__. So, I'll state a general algorithm that can be used as a start template for any problem of this kind, with examples for the arithmetic ones. A trivial assumption will be made: operators have an arity of at least 1.
+
+A general algorithm would be:
+1. Identify all the operators that may be in the expression. Let's call it the *set of operators*.
+2. Separate the set of operators into subsets based on priority. Each subset will have a priority between 1 and N, where N is the number of subsets we created.
+3. For each subset, create a function. For each function having a priotity of N, first take the result of calling the function having the priority N-1. The result of the function having the priority N-1 will be one operand for our function with a priority of N.
+4. Create a top level function called `evaluate` that will call the lowest priority function, the function with a priority of N, and will return the result.
+5. Identify then possible domain of representation for the operand. Create a function that is responsible of "extracting" an operand for us. Let's call it `value`.
+6. Create a function that will abstractize the value extraction, called `operand`. If there are paranthesis allowed in the expression, handle this case here. If there is an opening paranthesis is found, call the top level evaluation function: `evaluate`.
+7. The the highest priority function will call the `operand` function.
+8. For each priority-based function, look for the actual operator in the expression and fulfil the arity requirement: for each of the following operand needed, call again the function with a priority of N-1. Return the result.
+
 ## Link to problems
