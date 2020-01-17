@@ -86,3 +86,4 @@ For arithmetic expression calculation, it will pe particulary like this:
 A source implementing the solution explained can be found [here](https://github.com/robertkarol/didactic/blob/master/Expressions%20Evaluation%20-%20Indirect%20Recursion/EvalExpr.cpp)
 
 ## Link to problems
+Each problem corresponding to source files in repo: [EvalExpr.cpp](https://www.infoarena.ro/problema/evaluare), [ExprMinMax.cpp](https://www.infoarena.ro/problema/emm), [Bool.cpp](https://www.infoarena.ro/problema/bool)
