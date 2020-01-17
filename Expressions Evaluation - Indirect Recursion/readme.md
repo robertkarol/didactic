@@ -61,7 +61,7 @@ void func2()
 
 This can't be classified as recursion based on the definition we knew. So, we'll extend the previous definition and state that what we called recursion it's actually, *direct recursion* (because func1 directly calles itself). Let's continue with this "weird" code. We see that there is a "ping-pong" game between them, ecah passing the control to each other. This is called *indirect rescursion*. That's because `func1` passes the control to `func2`, which passes it back to `func1`. So, here we have a recursion, but with the help of an intermediate.
 
-## Algorithm for evaluating and expression using indirect recursion
+## Algorithm for evaluating an expression using indirect recursion
 First things first, we must keep in mind that arithmetic expressions are __not the only expressions that can be evaluated with this technique__. So, I'll state a general algorithm that can be used as a start template for any problem of this kind, with examples for the arithmetic ones. A trivial assumption will be made: operators have an arity of at least 1.
 
 A general algorithm would be:
