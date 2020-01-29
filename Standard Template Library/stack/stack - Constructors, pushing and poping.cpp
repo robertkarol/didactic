@@ -53,7 +53,7 @@ void stack_constructors()
 	// In C++ stack is an adapter container: adapts other data structures (e.g. deque, vector) so that they satisfy the above constraints
 
 	stack<int> myStack; // The default underlying container is deque
-	cout << myStack.size() << "\n"; // 0; stack is empty
+	cout << myStack.empty() << " " << myStack.size() << "\n"; // true 0
 
 	vector<int> myData(5, 10);
 	stack<int, vector<int>> myDataStack(myData); // creates a stack containing the data from vector
