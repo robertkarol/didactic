@@ -2,6 +2,7 @@
 #include <stack>
 #include <vector>
 #include <deque>
+#include <list>
 
 using namespace std;
 
@@ -49,7 +50,7 @@ void stack_constructors()
 {
 	// stack - data structure which allows only opertions at it's top: push elements at top, pop elements at the top
 	// In other words, you cannot insert, erase or update other elements than the first
-	// In C++ stack is an adapter container: adapts other data structures (deque, vector) so that they satisfy the above constraints
+	// In C++ stack is an adapter container: adapts other data structures (e.g. deque, vector) so that they satisfy the above constraints
 
 	stack<int> myStack; // The default underlying container is deque
 	cout << myStack.size() << "\n"; // 0; stack is empty
@@ -62,6 +63,10 @@ void stack_constructors()
 	deque<int> myDeque(10, 10);
 	stack<int> myStackFromDeque(myDeque); // creates a stack containing the data from deque
 	cout << myStackFromDeque.size() << "\n"; // 10
+
+	list<int> myList(7, 10);
+	stack<int, list<int>> myStackFromList(myList); // creates a stack containing the data from deque
+	cout << myStackFromList.size() << "\n"; // 7
 }
 
 int main()
